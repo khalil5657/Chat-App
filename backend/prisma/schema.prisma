@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @default(uuid())
+  username String @unique
+  password String
+  img UserImage?
+  frommessages Message[] @relation("from")
+  tomessages Message[] @relation("to")
+
+}
+
+model UserImage {
+  id String @id @default(uuid())
+  name String
+  url String
+  user User @relation(fields: [userid], references: [id])
+  userid String @unique
+}
+
+model Message {
+  id String @id @default(uuid())
+  content String?
+  file MessageFile?
+  from User @relation("from", fields: [fromid], references: [id])
+  fromid String
+  to User @relation("to", fields: [toid], references: [id])  
+  toid String
+  sentdate DateTime @default(now())
+}
+
+model MessageFile {
+  id String @id @default(uuid())
+  name String
+  url String
+  message Message @relation(fields: [messageid], references: [id])
+  messageid String @unique
+}
+
+model LastSeenMessages {
+  id String @id @default(uuid())
+  byid String
+  withid String
+  lastseenmessageid String?
+}
