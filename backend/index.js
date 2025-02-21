@@ -33,8 +33,16 @@ const upload = multer({ dest: 'uploads/' })
 
 import cors from "cors"
 
+let originUrl = ''
+
+if (process.env.state=="dev"){
+    originUrl = process.env.DEV_FRONTEND_URL
+}else{
+    originUrl = process.env.PROD_FRONTEND_URL
+}
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: originUrl,
     methods : ["PUT", "DELETE", "POST", "GET"],
     credentials: true
 }))

@@ -7,10 +7,17 @@ import { Socket } from "dgram"
 const app = express()
 
 const server = http.createServer(app)
+let originUrl = ''
+
+if (process.env.state=="dev"){
+    originUrl = process.env.DEV_FRONTEND_URL
+}else{
+    originUrl = process.env.PROD_FRONTEND_URL
+}
 
 const io = new Server(server, {
      cors:{
-        origin: ["http://localhost:5173"],
+        origin: [originUrl],
         // methods : ["PUT", "DELETE", "POST", "GET"],
         // credentials: true
      }
