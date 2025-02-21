@@ -162,7 +162,7 @@ function ShowMessages(){
         setAddMessageForm(false)
         if (message && file){
             /// if user sends a file and a message
-            const messageRaw = await fetch("http://localhost:3030/message", {
+            const messageRaw = await fetch(`${import.meta.env.VITE_FETCH_URL}/message`, {
             method:"POST",
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({
@@ -193,7 +193,7 @@ function ShowMessages(){
         }
         if (message&&!file){
             /// if users sends a message without file
-            const messageRaw = await fetch("http://localhost:3030/message", {
+            const messageRaw = await fetch(`${import.meta.env.VITE_FETCH_URL}/message`, {
             method:"POST",
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({
@@ -214,7 +214,7 @@ function ShowMessages(){
         }
         if (!message&&file){
             /// if user sends file without message
-            const messageRaw = await fetch("http://localhost:3030/message", {
+            const messageRaw = await fetch(`${import.meta.env.VITE_FETCH_URL}/message`, {
             method:"POST",
             headers: {'Content-Type': 'application/json'},
             body:JSON.stringify({

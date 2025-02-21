@@ -32,7 +32,7 @@ function RootLayout() {
     (
       async ()=>{
         // setLoading(true)
-        const userRaw = await fetch("http://localhost:3030/user", {
+        const userRaw = await fetch(`${import.meta.env.VITE_FETCH_URL}/user`, {
           method:"GET",
           headers:{"Content-Type":"application/json"},
           credentials:"include"
