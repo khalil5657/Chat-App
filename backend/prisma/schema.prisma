@@ -8,16 +8,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// datasource db {
-//   provider = "postgresql"
-//   url      = env("DEV_DATABASE_URL")
-// }
-
 datasource db {
-  provider  = "postgresql"
-  url       = env("PROD_DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
+
+// datasource db {
+//   provider  = "postgresql"
+//   url       = env("PROD_DATABASE_URL")
+//   directUrl = env("DIRECT_URL")
+// }
 
 model User {
   id String @id @default(uuid())
