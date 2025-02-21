@@ -359,7 +359,7 @@ function ShowMessages(){
                         </div>
                             <div className={state=="image"?"contains-file":state=="video"?"contains-file-video":"contain"}>
                                 {state=="image"?<img className="message-file" src={mes.file.url} />:state=="video"?
-                                <video className="message-file-video" controls>
+                                <video className="message-file-video" controls >
                                     <source src={mes.file.url}/>
                                 </video>:''}
                             {mes.content&&<h6 style={{margin:"0"}}>{mes.content}</h6>}

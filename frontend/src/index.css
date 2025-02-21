@@ -79,6 +79,74 @@ nav{
   display: grid;
   grid-template-columns: 1fr 60px;
 }
+
+.sign-background{
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sign-form-container{
+  width: 80%;
+  max-width: 500px;
+  background-color: white;
+  height: 60%;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 2px 2px 2px #374255;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30% 70%;
+  transition: all 0.3s;
+
+}
+.sign-form-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(25, 25, 31);
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.login-form input, .signup-form input{
+  background-color: rgb(234, 234, 234);
+  border: 1px solid rgb(234, 234, 234);
+  padding: 12px;
+  border-radius: 20px;
+}
+.login-form button, .signup-form button{
+  background-color: rgb(12, 89, 204);
+  color: white;
+  border: none;
+  padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+  transition: all 0.3s;
+}
+.sign-form-container:hover{
+  transform: translateY(-23px);
+}
+
+.signup-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.signup-form h1{
+  max-width: 0;
+  padding: 0;
+}
+.signup-form input[type="file"]{
+  padding: 5px 10px;
+}
+.sign-form-container button:hover{
+  opacity: 0.9;
+}
+
 .navsearch input{
   border: none;
   font-size: 14px;
@@ -141,14 +209,33 @@ nav{
 }
 .chat-users-container{
   background-color: var(--secondary-background-color);
-  width: 20%;
+  width: 32%;
+  max-width: 340px;
   height: 89vh;
   position: fixed;
+  /* display: flex;
+  flex-direction: column;
+  gap: 10px; */
+  /* padding-top: 30px; */
+  /* position: relative; */
+  /* overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none; */
+  
+}
+.new{
+  width: 100%;
+  max-width: 340px;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding-top: 30px;
-  /* overflow-y: auto; */
+  /* position: relative; */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  
 }
 .chat-users-container h2{
   margin: 0;
@@ -158,9 +245,10 @@ nav{
   transform: translateX(-50%);
 }
 .content{
-  margin-left: 20%;
+  margin-left: 32%;
   height: 89vh;
   overflow-y: auto;
+  overflow-x: hidden;
   }
 
 .users{
@@ -508,10 +596,14 @@ flex: 1;
   border: 3px solid var(--third-color);
   position: fixed; 
   bottom: 15px;
-  left: 15%;
+  /* left: 15%;
   right: 15%;
-  margin-left: 26%;
+  margin-left: 26%; */
   /* transform: translateX(-50%); */
+
+  margin-left: 35%;
+transform: translateX(-50%);
+
 }
 .add-message-form input{
   width: 70%;
@@ -715,4 +807,207 @@ flex: 1;
 }.blue{
   background-color: rgb(0, 125, 220);
   border: 2px solid white;
+}
+.navbuttons-sidebar{
+  /* width: 340px; */
+    /* margin-left: 50%;
+    transform: translateX(-50%); */
+    display: none;
+    /* gap: 20px; */
+    /* padding: 3px 0; */
+    /* justify-content: space-around; */
+    /* position: fixed; */
+    /* bottom: 20px; */
+}
+
+
+
+.not-signed-home{
+  background-color: var(--primary-background-color);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+.sign-methods{
+  width: 65%;
+  max-width: 500px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.sign-methods .Link{
+  text-decoration: none;
+  width: 30%;
+  background-color: var(--secondary-background-color);
+  color: var(--text-color);
+  padding: 10px;
+  /* animation-name: test;
+  animation-duration: 3s;
+  animation-iteration-count: infinite; */
+}
+.sign-methods .Link:nth-child(1){
+   animation-name: test;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+.sign-methods .Link2{
+   animation-name: testa;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes test {
+  0%{
+    transform: scale(1);
+  }
+  15%{
+    transform: scale(1.2);
+  }
+  30%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1) translateY(200px);
+  }
+  65%{
+    transform: scale(1.2) translateY(200px);
+  }
+  80%{
+    transform: scale(1) translateY(200px);
+  }
+  100%{
+    transform: scale(1) translateY(0);
+  }
+  /* 0%{
+    transform: scale(1) ;
+  }
+  20%{
+    transform: scale(1.2);
+  }
+  40%{
+    transform: scale(1);
+  }
+  60%{
+    transform: translateY(200px) scale(1);
+  }
+  80%{
+    transform: scale(1.2) translateY(200px);
+  }
+  90%{
+    transform: scale(1) translateY(200px);
+  }
+  100%{
+    transform: scale(1) translateY(0);
+
+  } */
+}
+@keyframes testa {
+  0%{
+    transform: scale(1) ;
+  }
+  20%{
+    transform: scale(1.2);
+  }
+  40%{
+    transform: scale(1);
+  }
+  60%{
+    transform: translateY(-200px) scale(1);
+  }
+  80%{
+    transform: scale(1.2) translateY(-200px);
+  }
+  90%{
+    transform: scale(1) translateY(-200px);
+  }
+  100%{
+    transform: scale(1) translateY(0);
+
+  }
+}
+
+
+
+@media screen and (max-width:830px) {
+  .navbuttons{
+    display: none;
+  }
+  .navbuttons-sidebar{
+    width: 32%;
+    /* margin-left: 50%; */
+    /* transform: translateX(-50%); */
+    display: flex;
+    gap: 20px;
+    padding: 3px 0;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 4px;
+  }
+  .new{
+    height: 75vh;
+  }
+  .contain-them{
+    width: 85%;
+  }
+  .users{
+    width: 85%;
+  }
+}
+@media screen and (max-width:600px) {
+  .navbuttons-sidebar{
+    flex-direction: column;
+    gap: 3px;
+  }
+  .new{
+    height: 74vh;
+  }
+}
+@media screen and (max-width:520px) {
+  .navsearch{
+    width: 64%;
+  }
+  .navbuttons-sidebar{
+    flex-direction: column;
+  }
+  .home-page-container{
+    width: 80%;
+  }
+}
+@media screen and (max-width:580px) {
+
+  .contains-file{
+    max-width: 50%;
+  }
+  .contains-file img{
+    width: 94%;
+  }
+  
+   .their-message > .contains-file-video, .my-message > .contains-file-video{
+    width: 75%;
+
+  }
+  .message-file-video{
+    width: 94%
+  }
+}
+
+@media screen and (max-width:1062px) {
+  .navsearch{
+    margin-left: 32%;
+    transform: translateX(0);
+  }
+}
+@media screen and (max-width:750px) {
+  .add-message-form{
+    width: 55%;
+  }
+}
+
+@media screen and (min-width:1062px) {
+  .content{
+    margin-left: 340px;
+  }
 }

@@ -160,7 +160,7 @@ function RootLayout() {
                 <div className="chat-user-name">
                   {aUser.username}
                 </div>
-                {Object.keys(chatUsersLastMessages).length>0?
+                {(chatUsersLastMessages[aUser.id])?
                 <div className="last-chat-user-message">
                   {chatUsersLastMessages[aUser.id].file?
                     <p>sent a file</p> :
@@ -176,6 +176,7 @@ function RootLayout() {
               </div>
 
             </Link>
+            
           </div>
   }
 
@@ -200,9 +201,18 @@ function RootLayout() {
                       <button onClick={logOut} className='logout-button'>Log out</button>
                     </div>
                   </nav>
-                  <div className='chat-users-container'>
+                  <div className='chat-users-container'> 
                     <h2>Chats:</h2>
-                    {chatUsers.length>0&&chatUsers.map((user)=>listUser(user))}
+                    <div className="new">
+                      {chatUsers.length>0&&chatUsers.map((user)=>listUser(user))}
+                    </div>
+                    
+                    
+                  </div>
+                  
+                  <div className="navbuttons-sidebar">
+                        <Link className='profile-button' to="/profile">{user.img?<img src={user.img.url}/>:<img src="https://res.cloudinary.com/dlwgxdiyp/image/upload/v1730058205/d76lwdwx5ojtcdk302eb.jpg" />}{user.username}</Link>
+                        <button onClick={logOut} className='logout-button'>Log out</button>
                   </div>
                 </>
           }

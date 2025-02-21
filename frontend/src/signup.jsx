@@ -36,16 +36,17 @@ function SignUp(){
         }
     }
 
-    return <div>
-                <form action="" onSubmit={signUp} encType="multipart/form-data">
-                    <label htmlFor="">Username</label>
-                    <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)}/><br/>
-                    <label htmlFor="">Password</label>
-                    <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)}/><br/>
-                    <h4>Choose Profile Picture</h4>
-                    <input type="file" name="picture" onChange={(e)=>setFile(e.target.files[0])} id="profile"/>
-                    <button type="submit">Create Account!!</button>
-                </form>
+    return <div className="sign-background">
+                <div className="sign-form-container">
+                    <h1 className="sign-form-title">Sign Up</h1>
+                    <form action="" onSubmit={signUp} encType="multipart/form-data" className="signup-form">
+                        <input type="text" value={username} onChange={(e)=>setUsername(e.target.value)} placeholder="Username"/>
+                        <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password"/>
+                        <h4>Choose Profile Picture</h4>
+                        <input type="file" name="picture" onChange={(e)=>setFile(e.target.files[0])} id="profile"/>
+                        <button type="submit">Create Account!!</button>
+                    </form>
+                </div>
             </div>
 }
 
