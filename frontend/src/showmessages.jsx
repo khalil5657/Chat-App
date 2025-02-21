@@ -286,7 +286,6 @@ function ShowMessages(){
         })
 
         socket.on("newSeenMessage", (data)=>{
-            console.log(id, data, '900909090')
             if (id!==data.byid){
                 // setUpdate({})
                 return
@@ -400,7 +399,6 @@ function ShowMessages(){
                     <div class="inner three"></div>
                 </div>
     }
-    console.log(selectedUser, 'idididi')
     return <div className="content">
 
                 <div className="selected-chat-user">

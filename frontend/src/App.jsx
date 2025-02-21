@@ -81,16 +81,7 @@ function RootLayout() {
     )()
   }, [update])
 
-  useEffect(()=>{
-    (
-      async () =>{
-        setInterval(async() => {
-        const res = await fetch(`${import.meta.env.VITE_FETCH_URL}`);
-        console.log("test test")
-      }, 600000);
-      }
-    )()
-  }, [])
+  
 
   async function logOut(){
     await fetch(`${import.meta.env.VITE_FETCH_URL}/logout`, {
