@@ -86,8 +86,8 @@ function RootLayout() {
       async () =>{
         setInterval(async() => {
         const res = await fetch(`${import.meta.env.VITE_FETCH_URL}`);
-        console.log("dididid")
-      }, 20000);
+        console.log("test test")
+      }, 600000);
       }
     )()
   }, [])
