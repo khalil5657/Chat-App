@@ -105,6 +105,7 @@ function ShowMessages(){
                 ////////
                 setMessages(messages)
 
+                unsubscribeFromMessages()
                 subscribeToMessages()
 
                 setLoading(false)
@@ -122,7 +123,7 @@ function ShowMessages(){
         setFile('')
         setMessage('')
         setCheckSeenMessage(true)
-        unsubscribeFromMessages()
+        // unsubscribeFromMessages()
     }, [id])
 
     useEffect(()=>{

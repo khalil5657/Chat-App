@@ -327,6 +327,7 @@ app.post("/addmessagefile/:id/:toid", upload.single("image"), async(req, res)=>{
     const receiverScoketId = getReceiverSocketId(req.params.toid)
     if (receiverScoketId){
         io.to(receiverScoketId).emit("newMessage", {lista:lista, newMessage:message})
+        io.to(receiverScoketId).emit("updateChatUsers")
     }
 
     res.send(message)
