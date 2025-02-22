@@ -171,7 +171,9 @@ function RootLayout() {
                 :''}
                 {Object.keys(chatUsersLastMessagesSeenByMe).length>0?
                   <>
-                    {chatUsersLastMessages[aUser.id].id!==chatUsersLastMessagesSeenByMe[aUser.id]&&<div className='new-messages'></div>}
+                    {chatUsersLastMessages[aUser.id]?
+                      <>{chatUsersLastMessages[aUser.id].id!==chatUsersLastMessagesSeenByMe[aUser.id]&&<div className='new-messages'></div>}</>
+                    :""}
                   </>
                   :""}
               </div>

@@ -86,8 +86,6 @@ function ShowMessages(){
                     }
                     
                 }
-                        setCheckSeenMessage(true)
-
                 /////////// get selected user last seen message with me
                 let lastSeenMessageByTheOtherRaw = await fetch(`${import.meta.env.VITE_FETCH_URL}/getlastseen`, {
                     method:"POST",
@@ -103,7 +101,7 @@ function ShowMessages(){
                 }else{
                     setLastSeenMessageByTheOther('')
                 }
-                setReadUntilIndex(0)
+                setCheckSeenMessage(true)
                 ////////
                 setMessages(messages)
 
@@ -353,7 +351,6 @@ function ShowMessages(){
                 state = "video"
             }
         }
-
         return <div className={mes.fromid==user.id?"my-message":"their-message"}>
                         {/* {mes.id} */}
                         <div className={mes.fromid==user.id?"my-message-profile":"their-message-profile"}>
@@ -402,6 +399,7 @@ function ShowMessages(){
                     <div class="inner three"></div>
                 </div>
     }
+    console.log(lastSeenMessageByTheOther, 'last seen', readUntilIndex)
     return <div className="content">
 
                 <div className="selected-chat-user">

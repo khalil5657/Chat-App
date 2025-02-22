@@ -7,9 +7,16 @@ import { Socket } from "dgram"
 const app = express()
 
 const server = http.createServer(app)
+
+
+import dotenv from "dotenv"
+
+
+dotenv.config();
+
 let originUrl = ''
 
-if (process.env.state=="dev"){
+if (process.env.STATE=="dev"){
     originUrl = process.env.DEV_FRONTEND_URL
 }else{
     originUrl = process.env.PROD_FRONTEND_URL
