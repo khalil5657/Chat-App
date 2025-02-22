@@ -86,6 +86,8 @@ function ShowMessages(){
                     }
                     
                 }
+                        setCheckSeenMessage(true)
+
                 /////////// get selected user last seen message with me
                 let lastSeenMessageByTheOtherRaw = await fetch(`${import.meta.env.VITE_FETCH_URL}/getlastseen`, {
                     method:"POST",
@@ -122,7 +124,7 @@ function ShowMessages(){
     useEffect(()=>{
         setFile('')
         setMessage('')
-        setCheckSeenMessage(true)
+        // setCheckSeenMessage(true)
         // unsubscribeFromMessages()
     }, [id])
 
