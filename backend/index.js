@@ -57,6 +57,15 @@ app.get("/", (req, res)=>{
     res.send("hello")
 })
 
+app.get("/sendtest", async(req, res)=>{
+    await prisma.test.create({
+        data:{
+            content:"ktfcsv54464322"
+        }
+    })
+    res.send("yyyyy")
+})
+
 app.post("/signup", async (req, res)=>{
     const { username, password } = req.body
     try{

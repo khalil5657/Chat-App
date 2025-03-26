@@ -62,3 +62,8 @@ model LastSeenMessages {
   withid String
   lastseenmessageid String?
 }
+
+model Test {
+  id String @id @default(uuid())
+  content String
+}
