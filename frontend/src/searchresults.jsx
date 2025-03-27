@@ -5,16 +5,21 @@ function ShowSearch(){
     const { word } = useParams()
     const [users, setUsers] = useState([])
     const [user, setUser] = useOutletContext()
+    const [loading, setLoading]  = useState(true)
 
     useEffect(()=>{
         (
             async ()=>{
+                // if (word.length==0){
+                //     return 
+                // }
                 const usersRaw = await fetch(`${import.meta.env.VITE_FETCH_URL}/users/${word}`, {
                     method:"GET",
                     headers:{"Content-Type":"appkication/json"}
                 })
                 const users = await usersRaw.json()
                 setUsers(users)
+                setLoading(false)
             }
         )()
     }, [word])
@@ -27,7 +32,13 @@ function ShowSearch(){
         }
         
     }
-
+    if (loading==true){
+        return <div class="loader">
+                    <div class="inner one"></div>
+                    <div class="inner two"></div>
+                    <div class="inner three"></div>
+                </div>
+    }
     return <div className="content">
                 <h1 className="search-results-title">Search results for "{word}"</h1>
                 {users.length>0?<div className="users">{users.map(user=>listIt(user))}</div>:<h3>No users here!</h3>}

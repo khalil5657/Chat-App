@@ -148,8 +148,10 @@ function RootLayout() {
             <Link to={`/messages/${aUser.id}`}  className='chat-user'>
 
               {aUser.img?<div className='chat-user-image'>
-                            <img src={aUser.img.url} />
-                            {onlineUsers.includes(aUser.id)?<span className='online-dot'></span>:<span className='offline-dot'></span>}
+                            <div style={{position:"relative"}}>
+                              <img src={aUser.img.url} />
+                              {onlineUsers.includes(aUser.id)?<span className='online-dot'></span>:<span className='offline-dot'></span>}
+                            </div>
                           </div>:
                           <div className="chat-user-image">
                             <img src='https://res.cloudinary.com/dlwgxdiyp/image/upload/v1730058205/d76lwdwx5ojtcdk302eb.jpg'/>
@@ -197,7 +199,7 @@ function RootLayout() {
                     <Link to="/" className='navhome'>Home</Link>
                     <div className="navsearch">
                       <input value={searchValue} onChange={(e)=>setsearchValue(e.target.value)}/>
-                      <Link to={`/searchresults/${searchValue}`} className='Link'>Search</Link>
+                      <Link to={`/searchresults/${searchValue}`} className='Link' >Search</Link>
                     </div>
                     <div className="navbuttons">
                        <Link className='profile-button' to="/profile">{user.img?<img src={user.img.url}/>:<img src="https://res.cloudinary.com/dlwgxdiyp/image/upload/v1730058205/d76lwdwx5ojtcdk302eb.jpg" />}{user.username}</Link>
@@ -240,6 +242,10 @@ const router = createBrowserRouter([
       },
       {
         path:"/searchresults/:word",
+        element:<ShowSearch />
+      },
+      {
+        path:"/searchresults",
         element:<ShowSearch />
       },
       {
